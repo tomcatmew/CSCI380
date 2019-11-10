@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to NYIT&Rice</title>
+    <!-- update the version number as needed -->
+    <!-- <script defer src="/__/firebase/7.3.0/firebase-app.js"></script> -->
+    <!-- include only the Firebase features as you need -->
+    <!-- <script defer src="/__/firebase/7.3.0/firebase-auth.js"></script> -->
+    <!-- <script defer src="/__/firebase/7.3.0/firebase-database.js"></script> -->
+    <!-- <script defer src="/__/firebase/7.3.0/firebase-firestore.js"></script> -->
+    <!-- initialize the SDK after all desired features are loaded -->
+    <!-- <script  src="/__/firebase/init.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+      <script>
+        // Initialize Firebase
+        var firebaseConfig = {
+          apiKey: "AIzaSyDc8Cqq39XUAnxkTPX-UDzVua67yYckZJI",
+          authDomain: "csci380-chen.firebaseapp.com",
+          databaseURL: "https://csci380-chen.firebaseio.com",
+          projectId: "csci380-chen",
+          storageBucket: "csci380-chen.appspot.com",
+          messagingSenderId: "125103871141",
+          appId: "1:125103871141:web:a3a6b5ce033c7eeb3da94c"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+
+      <script src="main.js"></script>
+      <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" type="text/css" href="taggingUI.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+  </head>
+
+  <body>
+
+    <div class="content">
+      <!--content title-->
+      <br>
+      <h2 class="content__title">NYIT Tutor&Rice</h2>
+      <!--content inner-->
+      <div class="content__inner">
+        <!--tabs-->
+        <div class="tabs">
+          <!--tabs navigation-->
+          <div class="tabs__nav">
+            <ul class="tabs__nav-list">
+              <li class="tabs__nav-item js-active"> &nbsp;&nbsp;&nbsp;&nbsp; Ask &nbsp;&nbsp;&nbsp;&nbsp; </li>
+              <li class="tabs__nav-item">Answer</li>
+              <li class="tabs__nav-item">&nbsp;&nbsp;&nbsp;&nbsp;Rank&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            </ul>
+          </div>
+          <!--tabs panels-->
+          <div class="tabs__panels">
+            <!--single panel  A==========================================================================================-->
+            <div class="tabs__panel">
+              <div class="tabs__panel-card">
+                Ask your question about computer science :
+              </div>
+              <div class="tabs__panel-card">
+                <form class="form" id="form1">
+                <p class="text">
+                  <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Question"></textarea>
+                </p>
+                </form>
+              </div>
+              <div class="tabs__panel-card">
+                <div class="tabs__panel-content"></div>
+              </div>
+              <div class="header__btns btns" id="subbtn"><a class="header__btn btn" href="nyit.edu" title="Submit the question" target="_blanc">Submit</a></div>
+            </div>
+            <!--single panel  B==========================================================================================-->
+            <div class="tabs__panel">
+              <div class="tabs__panel-card">
+                <div class="tabs__panel-content"></div>
+                <div class="tabs__panel-content"></div>
+              </div>
+              <div class="tabs__panel-card">
+                <div class="tabs__panel-content"></div>
+              </div>
+              <div class="tabs__panel-card tabs__panel-card--spaced-between">
+                <div class="tabs__panel-img"></div>
+                <div class="tabs__panel-img"></div>
+                <div class="tabs__panel-img"></div>
+              </div>
+            </div>
+            <!--single panel  C==========================================================================================-->
+            <div class="tabs__panel">
+              <div class="tabs__panel-card">
+                <div class="tabs__panel-content">zcasascas</div>
+              </div>
+              <div class="tabs__panel-card">
+                <div class="tabs__panel-content"></div>
+                <div class="tabs__panel-img"></div>
+              </div>
+              <div class="tabs__panel-card">
+                <div class="tabs__panel-img"></div>
+                <div class="tabs__panel-content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script  src="./taggingUI.js"></script>
+  </body>
+
+</html>

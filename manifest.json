@@ -1,0 +1,19 @@
+{
+  "short_name": "NYIT&Rice",
+  "name": "NYIT CSCI Answer&Rice",
+  "version": "1.0",
+  "description": "A simply app.",
+  "icons": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "626x626"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3367D6",
+  "orientation" : "portrait"
+}
