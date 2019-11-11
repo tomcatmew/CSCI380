@@ -1,4 +1,8 @@
 # CSCI380
-CSCI380课程用
+Those files are all in the public folder 
 
-这些都是在 public的文件 直接放到public 
+Our web application address : csci380-chen.firebaseapp.com
+
+Just put your code here if you write any new code
+
+
