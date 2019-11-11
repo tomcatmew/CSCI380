@@ -6,13 +6,13 @@
     <title>Welcome to NYIT&Rice</title>
 
     <!-- update the version number as needed -->
-    <script defer src="/__/firebase/7.3.0/firebase-app.js"></script>
+    <!-- <script defer src="/__/firebase/7.3.0/firebase-app.js"></script> -->
     <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/7.3.0/firebase-auth.js"></script>
+    <!-- <script defer src="/__/firebase/7.3.0/firebase-auth.js"></script>
     <script defer src="/__/firebase/7.3.0/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.3.0/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/7.3.0/firebase-firestore.js"></script> -->
     <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+    <!-- <script defer src="/__/firebase/init.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase.js"></script>
@@ -68,6 +68,11 @@
         // The start method will wait until the DOM is loaded.
         ui.start('#firebaseui-auth-container', uiConfig);
       </script>
+      <style>
+            h3 {
+              margin: auto;
+            }
+      </style>
     </head>
     <body>
       <!-- The surrounding HTML is left untouched by FirebaseUI.
@@ -75,15 +80,21 @@
       <div class="content">
         <!--content title-->
         <br>
-        <h2 class="content__title">Welcome to Answer&Rice</h2>
+        <h2 class="content__title">Welcome to Tutor&Rice</h2>
         <!--content inner-->
         <div class="content__inner">
-          <br>
-          <br>
+          <div class="tabs__panel-card">
+            <h3>Tutor & Rice</h3>
+          </div>
+          <div class="tabs__panel-card">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tutor&Rice is Progressive Web Applicaiton for NYIT students. Students could
+            either ask CSCI related question here or answer other students's questions.
+              Every question students answer will send 16oz rice to poor countries for charity.
+          </div>
           <br>
           <div id="firebaseui-auth-container"></div>
         </div>
     </div>
-    <script  src="./taggingUI.js"></script>
+    <script  src="./indexUI.js"></script>
     </body>
   </html>

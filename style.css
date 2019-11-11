@@ -1,11 +1,255 @@
-#subbtn{
+input {
+  display: none;
+}
+
+.apartB{
+  display: none;
+}
+
+.partB{
+  display: none;
+}
+.lyes {
+  position: relative;
+  display: block;
+  font-family: sans-serif;
+  word-wrap: break-word;
+  color: black;
+  font-weight: bold;
+  font-size: 1.0em;
+  line-height: 1.5em;
+  width: 18em;
+  margin: .5em;
+  height: 3em;
+  padding: 0.1em 1em 1.1em 1em;
+  border-radius: .75em;
+  position: relative;
+  overflow: hidden;
+  transition: color 500ms;
+  cursor: pointer;
+}
+
+.lyes:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #DDDCDF;
+  z-index: -2;
+}
+
+.lyes:after {
+  content: "\f00c";
+  text-align: right;
+  padding-right: .15em;
+  position: absolute;
+  font-family: FontAwesome;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  border-radius: .75em;
+  background-color: #98ECA3;
+  color: #98ECA3;
+  z-index: -1;
+  transition-property: left, right, color;
+  transition-duration: 500ms;
+}
+
+.lno {
+  display: block;
+  font-family: sans-serif;
+  color: black;
+  word-wrap: break-word;
+  font-weight: bold;
+  font-size: 1.0em;
+  line-height: 1.5em;
+  width: 18em;
+  margin: .5em;
+  height: 3em;
+  padding: 0.1em 1em 1.1em 1em;
+  border-radius: .75em;
+  position: relative;
+  overflow: hidden;
+  transition: color 500ms;
+  cursor: pointer;
+}
+
+.lno:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #DDDCDF;
+  z-index: -2;
+}
+
+.lno:after {
+  content: "\f00d";
+  text-align: right;
+  padding-right: .15em;
+  position: absolute;
+  font-family: FontAwesome;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  border-radius: .75em;
+  background-color: #DC143C;
+  color: #DC143C;
+  z-index: -1;
+  transition-property: left, right, color;
+  transition-duration: 500ms;
+}
+
+input:checked + label.lyes {
+  color: #48AC53
+}
+
+input:checked + label.lno {
+  color: black
+}
+input:checked + label.lyes:after {
+  left: 0;
+  right: 0;
+  color: #48AC53;
+}
+input:checked + label.lno:after {
+  left: 0;
+  right: 0;
+  color: black;
+}
+
+/* =================== */
+#kobtn{
   position: relative;
   top:30px;
   left:10px;
 }
 
 
+#subbtn{
+  position: relative;
+  top:4px;
+  left:10px;
+}
+
+
+#swbtn{
+  position: relative;
+  left:20px;
+  padding-bottom: 10px;
+}
+
+#resbtn{
+  position: relative;
+  top:-20px;
+  left:200px;
+  padding-bottom: 10px;
+}
+
+#nextbtn{
+  position: relative;
+  top:-10px;
+  left:290px;
+}
+
+#swbtn {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  padding: 6px 10px;
+  margin-right: 10px;
+  background-color: #2c2c2c;
+  border: 1px solid #2c2c2c;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+}
+
+#resbtn {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  padding: 6px 10px;
+  margin-right: 10px;
+  background-color: #fff;
+  border: 1px solid #2c2c2c;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+}
+
+#mubtn{
+  position: relative;
+  left:20px;
+  padding-bottom: 10px;
+}
+
+#sabtn{
+  position: relative;
+  top:-20px;
+  left:210px;
+  padding-bottom: 10px;
+}
+
+#t111{
+  position: relative;
+  z-index: 100;
+  width:400px;
+  height:150px;
+}
+
+.btns{
+  position: relative;
+  margin:0px;
+}
+
+#mubtn {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  padding: 6px 10px;
+  margin-right: 10px;
+  background-color: #2c2c2c;
+  border: 1px solid #2c2c2c;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+}
+
+#sabtn {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  padding: 6px 10px;
+  margin-right: 10px;
+  background-color: #fff;
+  border: 1px solid #2c2c2c;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+}
+
+
 #comment{
+	background-image: url(comment.svg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#comment2{
 	background-image: url(comment.svg);
 	background-size: 30px 30px;
 	background-position: 11px 8px;
@@ -19,7 +263,7 @@ input:focus, textarea:focus {
 
 textarea {
   position: relative;
-    width: 100%;
+    width: 320px;
     height: 150px;
     line-height: 150%;
     resize:vertical;
@@ -30,13 +274,13 @@ textarea {
 	color:#3c3c3c;
 	font-family: Helvetica, Arial, sans-serif;
   font-weight:500;
-	font-size: 18px;
+	font-size: 14px;
 	border-radius: 0;
 	line-height: 22px;
 	background-color: #fbfbfb;
-	padding: 13px 13px 13px 54px;
+	padding: 13px 8px 13px 54px;
 	margin-bottom: 10px;
-	width:100%;
+	width:320px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
@@ -50,7 +294,7 @@ textarea {
 	border: 3px solid #3498db;
 	color: #3498db;
 	outline: none;
-  padding: 13px 13px 13px 54px;
+  padding: 13px 8px 13px 54px;
 }
 
 .focused{

@@ -13,6 +13,9 @@
     <!-- initialize the SDK after all desired features are loaded -->
     <!-- <script  src="/__/firebase/init.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase.js"></script>
+
       <script>
         // Initialize Firebase
         var firebaseConfig = {
@@ -29,10 +32,37 @@
       </script>
 
       <script src="main.js"></script>
+      <script src="questionDB.js"></script>
+      <script src="jquery-3.4.1.min.js"></script>
       <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" type="text/css" href="taggingUI.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
 
+    <script>
+    var currentUid = null;
+    var current_user_email = null;
+    firebase.auth().onAuthStateChanged(function(user) {
+     // onAuthStateChanged listener triggers every time the user ID token changes.
+     // This could happen when a new user signs in or signs out.
+     // It could also happen when the current user ID token expires and is refreshed.
+     if (user && user.uid != currentUid) {
+      // Update the UI when a new user signs in.
+      // Otherwise ignore if this is a token refresh.
+      // Update the current user UID.
+      currentUid = user.uid;
+      current_user_email = user.email;
+      // multiDB();
+      // write_multiDB();
+     } else {
+      // Sign out operation. Reset the current user UID.
+      currentUid = null;
+      console.log("no user signed in");
+    }
+
+    });
+
+    </script>
   </head>
 
   <body>
@@ -57,55 +87,70 @@
           <div class="tabs__panels">
             <!--single panel  A==========================================================================================-->
             <div class="tabs__panel">
-              <div class="tabs__panel-card">
+              <div class="btns"  onclick="a_switch_a()"><a id="swbtn" title="Ask questions" >Ask</a></div>
+              <div class="btns"  onclick="a_switch_b()"><a id="resbtn" title="Check your questions">View Answer</a></div>
+              <div class="tabs__panel-card apartA">
                 Ask your question about computer science :
               </div>
-              <div class="tabs__panel-card">
-                <form class="form" id="form1">
+              <div class="tabs__panel-card apartA">
                 <p class="text">
-                  <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Question"></textarea>
+                  <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Your Question"></textarea>
                 </p>
-                </form>
               </div>
-              <div class="tabs__panel-card">
-                <div class="tabs__panel-content"></div>
+
+              <div class="tabs__panel-card apartB">
+                Your Question :
               </div>
-              <div class="header__btns btns" id="subbtn"><a class="header__btn btn" href="nyit.edu" title="Submit the question" target="_blanc">Submit</a></div>
+              <div class="tabs__panel-card apartB">
+                Answer :
+              </div>
+
+              <div class="btns apartA" id="subbtn"><a class="btn" title="Submit the question" >Submit</a></div>
+              <div class="btns apartB" id="nextbtn"><a class="btn" title="next answer" >Next</a></div>
             </div>
             <!--single panel  B==========================================================================================-->
             <div class="tabs__panel">
-              <div class="tabs__panel-card">
-                <div class="tabs__panel-content"></div>
-                <div class="tabs__panel-content"></div>
+              <div class="btns"  onclick="asnwer_switch_a()"><a id="mubtn" title="Submit the question" >MultiChoice</a></div>
+              <div class="btns"  onclick="asnwer_switch_b()"><a id="sabtn" title="Submit the question" >ShortAnswer</a></div>
+              <div id="multi_q_tag" class="tabs__panel-card partA">
+                Ask your question about computer science :asdasd
+                asdasdads
               </div>
-              <div class="tabs__panel-card">
-                <div class="tabs__panel-content"></div>
+              <div class="tabs__panel-card partA">
+                <form>
+                  <input type="radio" id="a" name="radio"><label class="lno" for="a" id="ansa">A:</label>
+                  <input type="radio" id="b" name="radio"><label class="lno" for="b" id="ansb">B: </label>
+                  <input type="radio" id="c" name="radio"><label class="lno" for="c" id="ansc">C: </label>
+                  <input type="radio" id="d" name="radio"><label class="lno" for="d" id="ansd">D: </label>
+                </form>
               </div>
-              <div class="tabs__panel-card tabs__panel-card--spaced-between">
-                <div class="tabs__panel-img"></div>
-                <div class="tabs__panel-img"></div>
-                <div class="tabs__panel-img"></div>
+
+              <div class="tabs__panel-card partB">
+                Question is Question is Question is Question is Question is Question is Question is
+                Question is Question is Question is Question is Question is Question is Question is
+                Question is Question is Question is Question is Question is Question is Question is
               </div>
+
+              <div class="tabs__panel-card partB">
+                <p class="text">
+                  <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment2" placeholder="Your Answer"></textarea>
+                </p>
+              </div>
+
+              <div class="btns partB" id="kobtn"><a class="btn" title="Submit the answer" >Submit</a></div>
             </div>
             <!--single panel  C==========================================================================================-->
             <div class="tabs__panel">
-              <div class="tabs__panel-card">
-                <div class="tabs__panel-content">zcasascas</div>
-              </div>
-              <div class="tabs__panel-card">
-                <div class="tabs__panel-content"></div>
-                <div class="tabs__panel-img"></div>
-              </div>
-              <div class="tabs__panel-card">
-                <div class="tabs__panel-img"></div>
-                <div class="tabs__panel-content"></div>
-              </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
   <script  src="./taggingUI.js"></script>
+  <script>
+    init_multi();
+  </script>
   </body>
 
 </html>

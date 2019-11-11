@@ -19,7 +19,7 @@ body a {
   transition-duration: 0.2s;
   transition-timing-function: linear;
   transition-delay: 0s;
-  padding: 10px 20px;
+  padding: 6px 10px;
   margin-right: 10px;
   background-color: #fff;
   border: 1px solid #2c2c2c;
@@ -84,7 +84,7 @@ body a {
   transition: width .2s linear 0s, -webkit-transform .2s ease-out 0s;
   transition: width .2s linear 0s, transform .2s ease-out 0s;
   transition: width .2s linear 0s, transform .2s ease-out 0s, -webkit-transform .2s ease-out 0s;
-  background-color: #119DA4;
+  background-color: #f0a219;
   border-radius: 3px;
   z-index: 1;
 }
@@ -104,13 +104,15 @@ body a {
   transition-delay: 0s;
   padding: 15px;
   cursor: pointer;
+  font-weight: bold;
 }
 .tabs__nav-item.js-active {
   transition-property: all;
   transition-duration: 0.2s;
   transition-timing-function: linear;
   transition-delay: 0.05s;
-  color: #fff;
+  color: #4169E1;
+  font-weight: bold;
 }
 
 .tabs__panels {
@@ -127,8 +129,10 @@ body a {
           transform: scale(0.8);
   width: 100%;
   opacity: 0;
+  display:none;
 }
 .tabs__panel.js-active {
+  display:block;
   transition: all .25s linear 0s;
   -webkit-transform: scale(1);
           transform: scale(1);

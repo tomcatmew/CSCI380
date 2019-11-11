@@ -60,7 +60,6 @@ const appendDecorationNav = () => {
   decorationElem.classList.add('js-decoration');
 
   //appending decoration element to navigation
-  DOM.tabsNav.append(decorationElem);
 
   //appending styles to decoration element
   return decorationElem;
@@ -88,8 +87,6 @@ const setActivePanel = index => {
 
   });
 
-  DOM.panels[index].classList.add('js-active');
-
 };
 
 //onload function
@@ -112,40 +109,4 @@ window.addEventListener('load', () => {
 
   //set active panel
   setActivePanel(activeItemIndex);
-});
-
-//click nav item function
-DOM.tabsNav.addEventListener('click', e => {
-
-  const navElemClass = 'tabs__nav-item';
-
-  //check if we click on a nav item
-  if (e.target.classList.contains(navElemClass)) {
-
-    const clickedTab = e.target;
-
-    const activeItemIndex = Array.from(DOM.tabsNavItems).indexOf(clickedTab);
-
-    //set active nav item
-    setActiveItem(clickedTab);
-
-    //find active nav item
-    const activeItem = findActiveItem();
-
-    //find active nav item params
-    const [decorWidth, decorOffset] = findActiveItemParams(activeItem);
-
-    //setting styles to the decoration elem
-    const decorElem = document.querySelector('.js-decoration');
-
-    styleDecorElem(decorElem, decorWidth, decorOffset);
-
-    //find active panel
-    findActivePanel(activeItemIndex);
-
-    //set active panel
-    setActivePanel(activeItemIndex);
-
-  }
-
 });
