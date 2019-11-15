@@ -7,8 +7,8 @@ Just put your code here if you write any new code
 
 
 # ShortAnswerDBFormat
-
-var  short_array = [];
+```
+var short_array = [];
 function shortDB(){
     var short_db = {
       short_1:{
@@ -24,7 +24,7 @@ function shortDB(){
     short_if_ans : true,
   },
 };
-      for(let i of Object.keys(short_db)){
+for(let i of Object.keys(short_db)){
          short_array.push(short_db[i]);
       }
       console.log("Course Array Test: ", short_array);
@@ -37,3 +37,4 @@ function write_shortDB(){
       });
     }
 }
+```
