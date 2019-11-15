@@ -38,3 +38,23 @@ function write_shortDB(){
     }
 }
 ```
+
+
+user data format
+```
+function saveUserInfo(user){
+
+  var db = firebase.firestore();
+
+  var userInfoData = {
+      email: user.email,
+      name: user.displayName,
+      uid: user.uid,
+      role: "student"
+  };
+
+db.collection("user").doc(user.email).collection("account").doc("userInfo").set(userInfoData).then(function() {
+    console.log("User InfoDocument successfully written!");
+});
+}
+```
