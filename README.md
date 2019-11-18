@@ -1,3 +1,20 @@
+# Multiple Choice Questions here
+```
+      multi_1:{
+      multi_id: "m1",
+      multi_q: "This is the question",
+      multi_a: "answer A",
+      multi_b: "answer B",
+      multi_c: "answer C",
+      multi_d: "answer D",
+      multi_answer:"c"
+    },
+```
+multi_id will be like, m1,m2,m3,m4 ... etc
+multi_answer will be the letter of correct answer
+
+
+
 # CSCI380
 Our web application address : csci380-chen.firebaseapp.com
 
