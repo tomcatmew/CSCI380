@@ -39,7 +39,7 @@ function a_switch_b(){
   $(".apartB").css("display","block");
 }
 
-
+// =============Database real time================
 function init_multi(){
     var db = firebase.firestore();
 
@@ -52,4 +52,24 @@ function init_multi(){
           $("#ansd").html(userRef.multi_d);
           $('#ans'+userRef.multi_answer).addClass('lyes').removeClass('lno');
       });
+}
+
+function saveUserInfo(user){
+
+  var db = firebase.firestore();
+
+  var userInfoData = {
+      email: user.email,
+      name: user.displayName,
+      uid: user.uid
+  };
+
+db.collection("user").doc(user.email).collection("account").doc("userInfo").set(userInfoData).then(function() {
+    console.log("User InfoDocument successfully written!");
+});
+}
+
+function check_short_list()
+{
+
 }
