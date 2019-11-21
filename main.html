@@ -32,12 +32,14 @@
       </script>
 
       <script src="main.js"></script>
+      <script src="databasemy.js"></script>
       <script src="questionDB.js"></script>
       <script src="jquery-3.4.1.min.js"></script>
       <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" type="text/css" href="taggingUI.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="correct.css">
 
     <script>
     var currentUid = null;
@@ -52,7 +54,11 @@
       // Update the current user UID.
       currentUid = user.uid;
       current_user_email = user.email;
+      display_short();
+      display_multi();
+      display_ss_question();
       saveUserInfo(user);
+      // shortDB_delete();
       // multiDB();
       // write_multiDB();
      } else {
@@ -67,8 +73,34 @@
   </head>
 
   <body>
-
     <div class="content">
+
+      <div class="pop" onclick = "pop_out()">
+          <div id="containerpop"  onclick = "pop_out()">
+            <div id="success-box" onclick = "pop_out()">
+              <div class="face">
+                <div class="eye"></div>
+                <div class="eye right"></div>
+                <div class="mouth happy"></div>
+              </div>
+              <div class="shadow scale"></div>
+              <div class="message"><h5 class="alert">Correct!</h5><p><b>You sent 16oz rice !</b></p></div>
+              <button class="button-box"><h6 class="green">continue</h6></button>
+            </div>
+            <div id="error-box">
+              <div class="face2">
+                <div class="eye"></div>
+                <div class="eye right"></div>
+                <div class="mouth sad"></div>
+              </div>
+              <div class="shadow move"></div>
+              <div class="message"><h5 class="alert">Wrong!</h5><p id = "wrong_c"></p></div>
+              <button class="button-box"><h6 class="red">continue</h6></button>
+            </div>
+          </div>
+      </div>
+
+
       <!--content title-->
       <br>
       <h2 class="content__title">NYIT Tutor&Rice</h2>
@@ -100,14 +132,17 @@
               </div>
 
               <div class="tabs__panel-card apartB">
-                Your Question :
+                Your Question : <div id="y_question"></div>
               </div>
               <div class="tabs__panel-card apartB">
-                Answer :
+                Answer : <div id="y_answer"></div>
               </div>
 
-              <div class="btns apartA" id="subbtn"><a class="btn" title="Submit the question" >Submit</a></div>
-              <div class="btns apartB" id="nextbtn"><a class="btn" title="next answer" >Next</a></div>
+              <div class="btns apartA" id="subbtn" onclick="add_short_DB()"><a class="btn" title="Submit the question" >Submit</a></div>
+              <div class="btns apartA" id="outbtn" onclick="logoutclick()"><a class="btn" title="Sign Out the APP" >Sign Out</a></div>
+              <div class="btns apartB" id="refbtn" onclick="display_short()"><a class="btn" title="refresh" >Refresh</a></div>
+              <div class="btns apartB" id="nextbtn" onclick="next_short()"><a class="btn" title="next answer" >Next</a></div>
+
             </div>
             <!--single panel  B==========================================================================================-->
             <div class="tabs__panel">
@@ -119,16 +154,14 @@
               </div>
               <div class="tabs__panel-card partA">
                 <form>
-                  <input type="radio" id="a" name="radio"><label class="lno" for="a" id="ansa">A:</label>
-                  <input type="radio" id="b" name="radio"><label class="lno" for="b" id="ansb">B: </label>
-                  <input type="radio" id="c" name="radio"><label class="lno" for="c" id="ansc">C: </label>
-                  <input type="radio" id="d" name="radio"><label class="lno" for="d" id="ansd">D: </label>
+                  <input type="radio" id="a" name="radio" onclick = "pop_result('ansa')"><label class="lno" for="a" id="ansa">A: </label>
+                  <input type="radio" id="b" name="radio" onclick = "pop_result('ansb')"><label class="lno" for="b" id="ansb">B: </label>
+                  <input type="radio" id="c" name="radio" onclick = "pop_result('ansc')"><label class="lno" for="c" id="ansc">C: </label>
+                  <input type="radio" id="d" name="radio" onclick = "pop_result('ansd')"><label class="lno" for="d" id="ansd">D: </label>
                 </form>
               </div>
 
-              <div class="tabs__panel-card partB">
-                Question is Question is Question is Question is Question is Question is Question is
-                Question is Question is Question is Question is Question is Question is Question is
+              <div class="tabs__panel-card partB" id="ss_question">
                 Question is Question is Question is Question is Question is Question is Question is
               </div>
 
@@ -138,7 +171,8 @@
                 </p>
               </div>
 
-              <div class="btns partB" id="kobtn"><a class="btn" title="Submit the answer" >Submit</a></div>
+              <div class="btns partB" id="kobtn" onclick="upload_answer()"><a class="btn" title="Submit the answer" >Submit</a></div>
+              <div class="btns partB" id="tobtn" onclick="next_ss_question()"><a class="btn" title="Next Question" >&nbsp;&nbsp;Next&nbsp;&nbsp;</a></div>
             </div>
             <!--single panel  C==========================================================================================-->
             <div class="tabs__panel">
@@ -149,9 +183,10 @@
       </div>
     </div>
   <script  src="./taggingUI.js"></script>
+
   <script>
-    init_multi();
   </script>
+
   </body>
 
 </html>

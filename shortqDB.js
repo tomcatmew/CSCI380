@@ -22,8 +22,8 @@ for(let i of Object.keys(short_db)){
 function write_shortDB(){
     var db = firebase.firestore();
     for(i = 0; i < short_array.length; i++){
-      db.collection("multiDB").doc(short_array[i]["multi_id"]).set(short_array[i]).then(function() {
-          console.log("Quesiton InfoDocument successfully written!");
+      db.collection("shortDB").doc(short_array[i]["short_id"]).set(short_array[i]).then(function() {
+          console.log("SB Quesiton InfoDocument successfully written!");
       });
     }
 }

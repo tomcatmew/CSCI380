@@ -2,7 +2,7 @@ var  multi_array = [];
 function multiDB(){
     var multi_db = {
       multi_1:{
-      multi_id: "m1",
+      multi_id: 1,
       multi_q: "what is the best mod can use in here",
       multi_a: "waterfall",
       multi_b: "flexiable",
@@ -11,7 +11,7 @@ function multiDB(){
       multi_answer:"c"
     },
     multi_2:{
-    multi_id: "m2",
+    multi_id: 2,
     multi_q: "what is the worst mod can use in here",
     multi_a: "waterfall",
     multi_b: "flexiable",

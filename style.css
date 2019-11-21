@@ -1,5 +1,41 @@
+.rounded  {
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+      -ms-border-radius: 6px;
+       -o-border-radius: 6px;
+          border-radius: 6px;
+}
+
+.trans {
+  -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
+
+}
+
+.pop {
+  display:none;
+  position:fixed;
+  max-width: 700px;
+  margin: auto;
+  width:375px;
+  height:850px;
+  top:41%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  background:#ffffff;
+  background: rgba(0, 0, 0, 0.2);;
+  z-index:20;
+}
+
+
 input {
   display: none;
+}
+
+
+#wrong_c{
+  font-weight: bold;
 }
 
 .apartB{
@@ -131,11 +167,23 @@ input:checked + label.lno:after {
   left:10px;
 }
 
+#tobtn{
+  position: relative;
+  top:10px;
+  left:260px;
+}
+
 
 #subbtn{
   position: relative;
   top:4px;
   left:10px;
+}
+
+#outbtn{
+  position: relative;
+  top:-14px;
+  left:240px;
 }
 
 
@@ -156,6 +204,12 @@ input:checked + label.lno:after {
   position: relative;
   top:-10px;
   left:290px;
+}
+
+#refbtn{
+  position:relative;
+  top:10px;
+  left:10px;
 }
 
 #swbtn {
