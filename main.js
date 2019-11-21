@@ -42,6 +42,23 @@ function a_switch_b(){
 // =============Database real time================
 // var doc_short_count = 0;
 
+function display_rank(){
+  var db = firebase.firestore();
+  $('#the_body').empty();
+  var rank = 0;
+  db.collection("user").get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          var ref = doc.data();
+          rank++;
+          var content = '<tr><td>' +  ref.name + '</td><td>' + ref.count_rice + '</td><td>' + rank + '</td></tr>'
+          $('#the_body').append(content);
+        });
+      });
+
+}
+
+
 function pop_result(asd){
     var db = firebase.firestore();
     var li = document.getElementById(asd);
@@ -185,6 +202,9 @@ function add_short_DB()
   var db = firebase.firestore();
   var text = $('#comment').val();
 
+  let action = confirm("Are you sure to submit the question?");
+  if(action == true){
+
   db.collection("shortDB").get().then(snap => {
      doc_short_count = snap.size
   var tempt  = {
@@ -226,10 +246,17 @@ function add_short_DB()
 
   db.collection("shortDB").doc("s" + doc_short_count).set(tempt).then(function() {
       console.log("Short Quesiton successfully written!");
-  });
+      });
+    });
 
-
-});
+    alert("You have successfully Sent Question ");
+    $('#comment').val('');
+    $('#comment').prop('placeholder', "Write Your Question");
+    }
+  else
+    {
+    console.log("cancel book");
+    }
 
 }
 
@@ -284,6 +311,18 @@ function display_ss_question()
   db.collection("shortDB").doc("s" + userReff.current_q_s).get().then(function(doc) {
         var userRef = doc.data();
         $('#ss_question').html(userRef.short_main);
+        if(userRef.short_if_ans == true)
+        {
+          $('#comment2').val('');
+          $('#comment2').prop('placeholder', userRef.short_ans);
+          $('#comment2').prop('disabled', true);
+
+        }
+        else if(userRef.short_if_ans == false){
+          $('#comment2').val('');
+          $('#comment2').prop('placeholder', "Write Your Answer");
+          $('#comment2').prop('disabled', false);
+        }
       });
   });
 }
@@ -307,10 +346,35 @@ function next_ss_question()
           db.collection("shortDB").doc("s" + current_s_indexf).get().then(function(doc) {
           var userRef = doc.data();
           $('#ss_question').html(userRef.short_main);
+          if(userRef.short_if_ans == true)
+          {
+            $('#comment2').val('');
+            $('#comment2').prop('placeholder', userRef.short_ans);
+            $('#comment2').prop('disabled', true);
+
+          }
+          else if(userRef.short_if_ans == false){
+            $('#comment2').val('');
+            $('#comment2').prop('placeholder', "Write Your Answer");
+            $('#comment2').prop('disabled', false);
+          }
         });
     });
   });
 }
+
+// function check_if_answer(){
+//   var db = firebase.firestore();
+// db.collection("user").doc(current_user_email).get().then(function(doc) {
+//   var ref = doc.data();
+//   var current_s_indexf = ref.current_q_s;
+//   db.collection("shortDB").doc("s" + current_s_indexf).get().then(function(docc) {
+//     var reff = docc.data();
+//     if(ref.short_if_ans == true)
+//       next_ss_question();
+//     });
+//   });
+// }
 
 function upload_answer()
 {
@@ -327,10 +391,19 @@ function upload_answer()
               short_ans : answer
             }
             db.collection("shortDB").doc("s" + ref.short_id).update(tempt_answer);
+            $('#comment2').prop('disabled', true);
+            db.collection("user").doc(current_user_email).get().then(function(docc) {
+              var reff = docc.data();
+              var new_count = reff.count_rice + 16;
+              var tempt = {
+                count_rice : new_count
+              }
+            db.collection("user").doc(current_user_email).update(tempt);
+          });
             alert("You have successfully sent Answer +16 rice ! ");
         });
     });
-  $('#comment2').val(" ");
+
 }
 
 function logoutclick(){

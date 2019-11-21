@@ -57,6 +57,7 @@
       display_short();
       display_multi();
       display_ss_question();
+      display_rank();
       saveUserInfo(user);
       // shortDB_delete();
       // multiDB();
@@ -120,14 +121,14 @@
           <div class="tabs__panels">
             <!--single panel  A==========================================================================================-->
             <div class="tabs__panel">
-              <div class="btns"  onclick="a_switch_a()"><a id="swbtn" title="Ask questions" >Ask</a></div>
-              <div class="btns"  onclick="a_switch_b()"><a id="resbtn" title="Check your questions">View Answer</a></div>
+              <div class="btns" onclick="a_switch_a()"><a   id="swbtn" title="Ask questions" >Ask</a></div>
+              <div class="btns" onclick="a_switch_b()"><a  id="resbtn" title="Check your questions">View Answer</a></div>
               <div class="tabs__panel-card apartA">
                 Ask your question about computer science :
               </div>
               <div class="tabs__panel-card apartA">
                 <p class="text">
-                  <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Your Question"></textarea>
+                  <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Write Your Question"></textarea>
                 </p>
               </div>
 
@@ -167,7 +168,7 @@
 
               <div class="tabs__panel-card partB">
                 <p class="text">
-                  <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment2" placeholder="Your Answer"></textarea>
+                  <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment2" placeholder="Write Your Answer"></textarea>
                 </p>
               </div>
 
@@ -176,7 +177,23 @@
             </div>
             <!--single panel  C==========================================================================================-->
             <div class="tabs__panel">
-
+              <div class="tabs__panel-card cpartB">
+                <b id="the_title">NYIT Rice Donation</b>
+              </div>
+                <div class="tabs__panel-card cpartA">
+                  <table id="ranking" cellspacing="0" cellpadding="0">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Rice Donated</th>
+                          <th>Rank</th>
+                        </tr>
+                      </thead>
+                      <tbody id="the_body">
+                      </tbody>
+                    </table>
+                </div>
+                <div class="btns partC" id="playbtn" onclick="display_rank()"><a  class="btn" title="Refresh Ranking" >Refresh</a></div>
             </div>
           </div>
         </div>
@@ -185,6 +202,7 @@
   <script  src="./taggingUI.js"></script>
 
   <script>
+
   </script>
 
   </body>
